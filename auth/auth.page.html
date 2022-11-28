@@ -1,0 +1,33 @@
+<ion-content>
+  <ion-grid >
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>My Ai Journal</ion-card-title>
+            <ion-card-subtitle *ngIf="login">Login</ion-card-subtitle>
+            <ion-card-subtitle *ngIf="!login">Create Account</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input type="email"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input type="password"></ion-input>
+            </ion-item>
+            <ion-button *ngIf="login" (click)="onLogin()" expand="block">Login</ion-button>
+            <ion-button *ngIf="!login" (click)="onLogin()" expand="block">Create Account</ion-button>
+
+          </ion-card-content>
+          <ion-segment value="login" (ionChange)="onFilterUpdate($event)">
+            <ion-segment-button value="login">Login</ion-segment-button>
+            <ion-segment-button value="create-acount" >Create Account</ion-segment-button>
+          </ion-segment>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

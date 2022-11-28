@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/tabs/journals"></ion-back-button>
+      </ion-buttons>
+    </ion-buttons>
+    <ion-title>
+
+    </ion-title>
+    <ion-buttons slot="primary" *ngIf="showEntries==='trackers'">
+      <ion-button (click)="createTracker()">
+        <ion-icon name="add"></ion-icon>Tracker
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary" *ngIf="showEntries==='entries'">
+      <ion-button (click)="createEntry()">
+        <ion-icon name="add"></ion-icon>Entry
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="primary" *ngIf="showEntries==='reports'">
+      <ion-button (click)="createReport()">
+        <ion-icon name="add"></ion-icon>Report
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-item>
+        <ion-label position="floating">
+          Journal Name
+        </ion-label>
+        <ion-input [value]="myJournal.name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Tracking
+        </ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">
+          Note
+        </ion-label>
+        <ion-input></ion-input>
+      </ion-item>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-segment value="entries" (ionChange)="onFilterUpdate($event)">
+    <ion-segment-button value="trackers">Trackers</ion-segment-button>
+    <ion-segment-button value="entries">Entries</ion-segment-button>
+    <ion-segment-button value="reports">Reports</ion-segment-button>
+  </ion-segment>
+
+  <ion-list *ngIf="showEntries==='trackers'">
+    <ion-item *ngFor="let tracker of myJournal.trackers">
+      <ion-label>
+        <h3>{{tracker.colName}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="showEntries==='entries'">
+    <ion-item *ngFor="let entry of myJournal.entries" [routerLink]="['/','tabs','journals','journal',myJournal.id,'entries',entry.id]">
+      <ion-label>
+        <h3>{{entry.date}}</h3>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list *ngIf="showEntries==='reports'">
+    <ion-item *ngFor="let report of myJournal.reports" [routerLink]="['/','tabs','journals','journal',myJournal.id,'reports',report.id]">
+      <ion-label>
+        <h2>{{report.title}}</h2>
+        <p><strong>{{report.description}}</strong></p>
+        <p>{{report.dateFrom}} to {{report.dateTo}}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>

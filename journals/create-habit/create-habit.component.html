@@ -1,0 +1,183 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-title>Add Habit</ion-title>
+
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+
+  <form (ngSubmit)="onBookPlace()">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-sm="6" offset-sm="3">
+
+          <ion-grid>
+            <ion-row>
+              <ion-col>
+                <ion-label>
+                  <p>Add Your Own Habit</p>
+                </ion-label>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Habit Name</ion-label>
+                  <ion-input type="text" ngModel name="habit-name" required autocomplete autocorrect></ion-input>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                <ion-item>
+                  <ion-label position="floating">Today's value</ion-label>
+                  <ion-textarea ngModel rows="3" name="habit-value" required></ion-textarea>
+                </ion-item>
+              </ion-col>
+            </ion-row>
+            <ion-row>
+              <ion-col>
+                  <ion-button type="submit" expand="block">
+                    Add Habit
+                  </ion-button>
+              </ion-col>
+            </ion-row>
+
+            <ion-row>
+              <ion-col>
+                <ion-accordion-group>
+                  <ion-accordion value="popular">
+                    <ion-item slot="header">
+                      <ion-label color="tertiary"><strong>Most Popular</strong></ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Sleep</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Cups of Water</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Jogging</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+                  <ion-accordion value="colors">
+                    <ion-item slot="header">
+                      <ion-label color="tertiary">Fitness</ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Calories Tracker</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Fitness Tracker</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+                  <ion-accordion value="shapes">
+                    <ion-item slot="header">
+                      <ion-label color="tertiary">Wearables</ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Max HR</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Avg. HR</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Steps</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Stress Avg.</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Stress Max</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Weather</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Cals</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+
+                  <ion-accordion value="numbers">
+                    <ion-item slot="header" >
+                      <ion-label color="tertiary">Geospatial</ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Latitude</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Weather</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+                  <ion-accordion value="ai">
+                    <ion-item slot="header">
+                      <ion-label color="tertiary">Ai</ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Sentiment Analysis</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+                  <ion-accordion value="my">
+                    <ion-item slot="header">
+                      <ion-label color="tertiary">My Habits</ion-label>
+                    </ion-item>
+
+                    <ion-list slot="content">
+                      <ion-item>
+                        <ion-label>Sleep</ion-label>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label>Food</ion-label>
+                      </ion-item>
+                    </ion-list>
+                  </ion-accordion>
+
+                </ion-accordion-group>
+              </ion-col>
+            </ion-row>
+
+
+          </ion-grid>
+
+
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+
+
+
+
+
+
+</ion-content>

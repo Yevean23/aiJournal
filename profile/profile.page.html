@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>My Profile</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              My Profile
+            </ion-card-title>
+            <ion-card-subtitle>
+              Journaling Since {{ dummyDate() | date }}
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size-sm="6" offset-sm="3">
+                  <ion-avatar>
+                    <ion-img src="https://media-exp1.licdn.com/dms/image/C5603AQFxJelmmQsJug/profile-displayphoto-shrink_800_800/0/1626910759731?e=2147483647&v=beta&t=msEsv9qqDLVHexOII4accf8xD78J0xZ7W3VN0HVJlKY"></ion-img>
+                  </ion-avatar>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="3" offset-sm="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Streak</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <h1><ion-icon name="flame-outline" color="danger"></ion-icon> 4</h1>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-sm="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Journals</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-label>
+              <h1><ion-icon name="book-outline" color="primary"></ion-icon> 2</h1>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" offset="3">
+              <ion-button expand="block" (click)="onLogout()" >Logout</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>

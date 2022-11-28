@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>month</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>
+              <ion-item>
+                <ion-text>My Tracked Habits</ion-text>
+                <ion-badge slot="end" fill="clear" (click)="addHabit()">+</ion-badge>
+              </ion-item>
+            </ion-card-title>
+
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list class="habitsList">
+              <ion-item *ngFor="let habit of aijournal.trackers; let i = index" [attr.data-index]="i">
+                <ion-input [(ngModel)]="habit.name"></ion-input>
+                <ion-badge slot="end">Streak: {{habit.streak}}</ion-badge>
+
+                <ion-checkbox [checked]="entries[i][0]"></ion-checkbox>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col>
+                  <span (click)="calendarBackOneMonth()">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                  </span>
+
+                </ion-col>
+                <ion-col (click)="calendarOpenModal()">
+                  {{trackedDay.toLocaleDateString('en-EN', { month: 'long'})}}
+                </ion-col>
+                <ion-col>
+                  <span (click)="calendarForwardOneMonth()">
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                  </span>
+
+                </ion-col>
+                <ion-col>
+                  <span (click)="calendarOpenModal()">
+                    {{trackedDay.getFullYear()}}
+                  </span>
+
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col *ngFor="let i of range(7)">
+                  {{dayOfWeek[i].substring(0, 3)}}
+                </ion-col>
+              </ion-row>
+              <ion-row *ngFor="let i of range(7)">
+                <ion-col *ngFor="let j of range(7)" [style]="getCalendarDayStyle(i,j)">
+                  <span>
+                    {{getDateNumber(i,j)}}
+                  </span>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+
+          </ion-card-content>
+        </ion-card>
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>
+              Habits Tracked Per Week
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- <ion-img src="https://www.metabase.com/learn/images/master-the-bar-chart-visualization/bar-chart.png"></ion-img> -->
+            <canvas id="weeklyBins" width="400" height="400"></canvas>
+          </ion-card-content>
+        </ion-card>
+
+
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

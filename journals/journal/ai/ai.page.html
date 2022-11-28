@@ -1,0 +1,146 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>ai</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <!-- <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>
+              Habit Tracking Points
+            </ion-card-subtitle>
+            <ion-card-title>
+              <h1>
+                <ion-icon name="diamond-outline" color="primary"></ion-icon>
+                12,000
+              </h1>
+            </ion-card-title>
+          </ion-card-header>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+        <ion-card>
+          <ion-card-content>
+            <ion-label>
+              <p>Longest Streak</p>
+              <h1>
+                <ion-icon name="flame-outline" color="danger"></ion-icon>
+                13
+                <strong>
+                  - Write
+                </strong>
+              </h1>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="6" size-sm="3" offset-sm="3">
+        <ion-card>
+          <ion-card-content >
+            <ion-label color="success">
+              <p>Best Habit</p>
+              <h1><ion-icon name="happy-outline"></ion-icon>Water</h1>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <ion-col size="6" size-sm="3">
+        <ion-card>
+          <ion-card-content>
+            <ion-label color="warning">
+              <p>Work On</p>
+              <h1><ion-icon name="barbell-outline"></ion-icon>Sleep</h1>
+            </ion-label>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row> -->
+    <ion-row>
+      <ion-col size-sm="6" offset-sm="3">
+
+        <!-- <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>
+              Select Analysis Technique
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-select value="linreg" okText="Okay" cancelText="Dismiss">
+                <ion-select-option value="linreg">Linear Regression</ion-select-option>
+                <ion-select-option value="polyreg">Polynomial Regression</ion-select-option>
+                <ion-select-option value="black">Black</ion-select-option>
+                <ion-select-option value="red">Red</ion-select-option>
+              </ion-select>
+            </ion-item>
+
+          </ion-card-content>
+        </ion-card> -->
+
+
+
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Visualization</ion-card-title>
+            <ion-card-subtitle>
+              <ion-label>Date Span</ion-label>
+            </ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <!-- <ion-button (click)="openPicker()">{{selectedSingle}}</ion-button> -->
+            <canvas [id]="analyticsSingleTracker" width="400" height="400"></canvas>
+          </ion-card-content>
+        </ion-card>
+
+
+
+        <!-- <ion-card>
+          <ion-card-header>
+            <ion-card-title>HeatMap</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <img [src]="heatmap">
+          </ion-card-content>
+        </ion-card> -->
+
+
+
+
+        <ion-card>
+          <ion-card-content>
+            <ion-item>
+              <ion-label>Fit Intercept?</ion-label>
+              <ion-toggle [(ngModel)]="fitIntercept" (ionChange)="calcCoefs()"></ion-toggle>
+            </ion-item>
+
+            <ion-label>Accuracy: {{+retu.acc * 100}} %</ion-label>
+            <ion-list>
+              <ion-item>
+                <ion-label>Intercept: {{retu.intercept}}</ion-label>
+              </ion-item>
+              <ion-item *ngFor="let tracker of trackers; let i = index" [attr.data-index]="i">
+                <ion-label>{{tracker.name}} : {{coefs[i]}}</ion-label>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+        </ion-card>
+
+
+
+      </ion-col>
+    </ion-row>
+
+
+
+
+  </ion-grid>
+
+</ion-content>

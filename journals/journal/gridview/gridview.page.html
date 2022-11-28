@@ -1,0 +1,91 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>gridview</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>
+
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-label>Time</ion-label>
+          </ion-item>
+
+        </ion-col>
+        <ion-col *ngFor="let tracker of trackers; let i = index" [attr.data-index]="i">
+          <ion-item-sliding>
+            <ion-item-options>
+              <ion-item-option color="danger" (click)="removeTracker(i)">REM</ion-item-option>
+            </ion-item-options>
+            <ion-item>
+              <ion-label position="floating">Name</ion-label>
+              <ion-input [(ngModel)]="tracker.name"></ion-input>
+            </ion-item>
+          </ion-item-sliding>
+        </ion-col>
+
+
+
+        <ion-col>
+          <ion-item>
+            <ion-button fill="clear" (click)="addTracker()">
+              <ion-icon name="add-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-item>
+
+        </ion-col>
+        <ion-col>
+          <ion-item>
+            <ion-label position="floating">Name</ion-label>
+            <ion-input [(ngModel)]="depName"></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+
+      <ion-row *ngFor="let entry of entries; let i = index" [attr.data-index]="i">
+        <ion-item-sliding>
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="removeEntry(i)">REM</ion-item-option>
+          </ion-item-options>
+          <ion-item>
+
+            <ion-col>{{times[i]}}</ion-col>
+            <ion-col *ngFor="let x of entry; let j = index; trackBy: trackByFn" [attr.data-index]="j">
+              <ion-item>
+                <ion-label position="floating">{{i}} , {{j}}</ion-label>
+                <ion-input [(ngModel)]="entry[j]"></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="1"> </ion-col>
+            <ion-col>
+              <ion-item>
+                <ion-label position="floating">Value 1</ion-label>
+                <ion-input [(ngModel)]="logs[i]"></ion-input>
+              </ion-item>
+            </ion-col>
+
+          </ion-item>
+        </ion-item-sliding>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            <ion-button expand="block" fill="clear" (click)="addEntry()"><ion-label>
+              <ion-icon name="add-circle-outline" slot="start"></ion-icon>
+              Add Entry
+            </ion-label>
+
+            </ion-button>
+
+
+        </ion-col>
+      </ion-row>
+
+
+
+    </ion-grid>
+
+</ion-content>
